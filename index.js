@@ -2,9 +2,23 @@
 /* eslint-disable quotes */
 /* eslint-disable linebreak-style */
 // @ts-check
-import half from "./src/half.js";
+// import Validator from "./src/Validator";
 
-const a = {};
-console.log(a);
+/* const v = new Validator();
+const schema = v.string();
+console.log(schema.isValid()); // true
+console.log(schema.isValid(null)); // true
+console.log(schema.isValid(undefined)); // true
 
-export default half;
+schema.required();
+
+console.log("---Required----");
+console.log(schema.isValid("what does the fox say")); // true
+console.log(schema.isValid("hexlet")); // true
+console.log(schema.isValid(null)); // false
+console.log(schema.isValid("")); // false
+
+console.log("---Contains----");
+console.log(schema.contains("what").isValid("what does the fox say")); // true;
+console.log(schema.contains('whatthe').isValid('what does the fox say')); // false;
+console.log(schema.isValid("what does the fox say")); // false */
