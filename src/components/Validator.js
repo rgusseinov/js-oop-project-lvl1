@@ -1,6 +1,7 @@
 import StringValidator from "./StringValidator";
 import NumberValidator from "./NumberValidator";
 import ArrayValidator from "./ArrayValidator";
+import ShapeValidator from "./ShapeValidator";
 
 export default class Validator {
   constructor() {}
@@ -15,5 +16,9 @@ export default class Validator {
 
   array() {
     return new ArrayValidator("array");
+  }
+
+  object() {
+    return new ShapeValidator("object");
   }
 }
