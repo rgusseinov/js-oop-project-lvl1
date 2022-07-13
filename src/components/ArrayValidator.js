@@ -10,7 +10,7 @@ export default class ArrayValidator extends BaseValidator {
     return this.addRule((array) => Array.isArray(array));
   }
 
-  sizeOf(size) {
+  sizeof(size) {
     return this.addRule((array) => array.length === size);
   }
 }
