@@ -12,6 +12,7 @@ export default class ShapeValidator extends BaseValidator {
   }
 
   isValid(obj) {
+    if (obj === null || obj === undefined) return false;
     return (
       Object.keys(obj).every((key) => this.shapeData[key].isValid(obj[key])) &&
       Object.keys(obj).length === Object.keys(this.shapeData).length
