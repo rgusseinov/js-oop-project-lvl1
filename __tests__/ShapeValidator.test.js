@@ -4,7 +4,7 @@
 import { test, expect } from "@jest/globals";
 import Validator from "../src/components/Validator";
 
-test("Validator array", () => {
+test("Validator shape", () => {
   const v = new Validator();
   const schema = v.object();
 

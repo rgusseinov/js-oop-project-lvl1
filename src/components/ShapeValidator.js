@@ -1,8 +1,8 @@
 import BaseValidator from "./BaseValidator";
 
 export default class ShapeValidator extends BaseValidator {
-  constructor() {
-    super();
+  constructor(...args) {
+    super(...args);
     this.rules = [(value) => typeof value === "object"];
     this.shapeData = {};
   }
@@ -18,13 +18,3 @@ export default class ShapeValidator extends BaseValidator {
     );
   }
 }
-
-/* schema.shape({
-  name: v.string().required(),
-  age: v.number().positive(),
-});
-
-schema.isValid({ name: 'kolya', age: 100 }); // true
-schema.isValid({ name: 'maya', age: null }); // true
-schema.isValid({ name: '', age: null }); // false
-schema.isValid({ name: 'ada', age: -5 }); // false */

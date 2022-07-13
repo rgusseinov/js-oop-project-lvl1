@@ -1,8 +1,8 @@
 import BaseValidator from "./BaseValidator";
 
 export default class ArrayValidator extends BaseValidator {
-  constructor() {
-    super();
+  constructor(...args) {
+    super(...args);
     this.rules = [(value) => typeof value === "object"];
   }
 
@@ -12,5 +12,5 @@ export default class ArrayValidator extends BaseValidator {
 
   sizeOf(size) {
     return this.addRule((array) => array.length === size);
-  }  
+  }
 }

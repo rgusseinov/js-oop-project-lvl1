@@ -1,8 +1,8 @@
 import BaseValidator from "./BaseValidator";
 
 export default class StringValidator extends BaseValidator {
-  constructor() {
-    super();
+  constructor(...args) {
+    super(...args);
     this.rules = [(value) => !Boolean(value) || typeof value === "string"];
   }
 

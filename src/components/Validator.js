@@ -4,21 +4,27 @@ import ArrayValidator from "./ArrayValidator";
 import ShapeValidator from "./ShapeValidator";
 
 export default class Validator {
-  constructor() {}
+  constructor() {
+    this.assignValidators = {};
+  }
+
+  addValidator(type, name, fn) {
+    this.assignValidators[type] = { [name]: fn };
+  }
 
   string() {
-    return new StringValidator("string");
+    return new StringValidator(this.assignValidators, "string");
   }
 
   number() {
-    return new NumberValidator("number");
+    return new NumberValidator(this.assignValidators, "number");
   }
 
   array() {
-    return new ArrayValidator("array");
+    return new ArrayValidator(this.assignValidators, "array");
   }
 
   object() {
-    return new ShapeValidator("object");
+    return new ShapeValidator(this.assignValidators, "object");
   }
 }
