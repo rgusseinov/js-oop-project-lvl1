@@ -1,17 +1,30 @@
 {
-  "name": "@hexlet/code",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:rgusseinov/js-oop-project-lvl1.git",
-  "author": "Ruslan Gusseinov <webelive24@gmail.com>",
-  "license": "MIT",
-  "scripts": {
-    "test": "npx jest"
+  "name": "@hexlet/nodejs-package",
+  "version": "0.0.3",
+  "description": "Node.js boilerplate package",
+  "bin": {
+    "nodejs-package": "bin/nodejs-package.js"
+  },
+  "simple-git-hooks": {
+    "pre-push": "make lint"
   },
   "engines": {
     "node": ">=14"
   },
+  "scripts": {
+    "test": "npx jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:rgusseinov/js-oop-project-lvl1.git"
+  },
+  "author": "Ruslan Gusseinov <webelive24@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hexlet-boilerplates/nodejs-package/issues"
+  },
   "type": "module",
+  "homepage": "https://github.com/hexlet-boilerplates/nodejs-package#readme",
   "dependencies": {
     "debug": "^4.3.4",
     "lodash": "^4.17.21"
