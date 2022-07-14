@@ -10,9 +10,9 @@ test("Custom validator with startsWith function", () => {
   v.addValidator("string", "startWith", fn);
 
   const schema = v.string().test("startWith", "H");
-  schema.isValid("exlet");
-  schema.isValid("Hexlet");
-  schema.isValid("HF");
+  expect(schema.isValid("exlet")).toBe(false);
+  expect(schema.isValid("Hexlet")).toBe(true);
+  expect(schema.isValid("HF")).toBe(true);
 });
 
 test("Custom validator with min function", () => {
