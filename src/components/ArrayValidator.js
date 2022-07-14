@@ -1,4 +1,4 @@
-import BaseValidator from "./BaseValidator";
+import BaseValidator from './BaseValidator';
 
 export default class ArrayValidator extends BaseValidator {
   constructor(...args) {
