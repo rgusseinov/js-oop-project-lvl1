@@ -1,14 +1,14 @@
-import BaseValidator from "./BaseValidator";
+import BaseValidator from './BaseValidator';
 
 export default class ShapeValidator extends BaseValidator {
   constructor(...args) {
     super(...args);
-    this.rules = [(value) => typeof value === "object"];
+    this.rules = [(value) => typeof value === 'object'];
     this.shapeData = {};
   }
 
   shape(data) {
-    return (this.shapeData = data);
+    this.shapeData = data;
   }
 
   isValid(obj) {
