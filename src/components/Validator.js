@@ -13,18 +13,18 @@ export default class Validator {
   }
 
   string() {
-    return new StringValidator(this.assignValidators, 'string');
+    return new StringValidator({ assignValidators: this.assignValidators, validatorType: 'string' });
   }
 
   number() {
-    return new NumberValidator(this.assignValidators, 'number');
+    return new NumberValidator({ assignValidators: this.assignValidators, validatorType: 'number' });
   }
 
   array() {
-    return new ArrayValidator(this.assignValidators, 'array');
+    return new ArrayValidator({ assignValidators: this.assignValidators, validatorType: 'array' });
   }
 
   object() {
-    return new ShapeValidator(this.assignValidators, 'object');
+    return new ShapeValidator({ assignValidators: this.assignValidators, validatorType: 'object' });
   }
 }

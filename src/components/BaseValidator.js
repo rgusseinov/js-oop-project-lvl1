@@ -1,9 +1,9 @@
 export default class BaseValidator {
-  constructor(...args) {
+  constructor({ assignValidators, validatorType }) {
     this.rules = [];
     this.shapeData = {};
-    this.assignValidators = args[0];
-    this.validatorType = args[1];
+    this.assignValidators = assignValidators;
+    this.validatorType = validatorType;
   }
 
   test(fName, ...args) {
