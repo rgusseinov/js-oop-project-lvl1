@@ -3,7 +3,7 @@ import BaseValidator from './BaseValidator';
 export default class NumberValidator extends BaseValidator {
   constructor(...args) {
     super(...args);
-    this.rules = [(value) => !Boolean(value) || typeof value === 'number'];
+    this.rules = [(value) => !!value || typeof value === 'number'];
   }
 
   required() {
