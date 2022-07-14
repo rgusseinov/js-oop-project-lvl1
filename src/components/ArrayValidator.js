@@ -3,7 +3,7 @@ import BaseValidator from './BaseValidator';
 export default class ArrayValidator extends BaseValidator {
   constructor(...args) {
     super(...args);
-    this.rules = [(value) => typeof value === "object"];
+    this.rules = [(value) => typeof value === 'object'];
   }
 
   required() {

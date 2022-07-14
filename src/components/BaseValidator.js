@@ -7,7 +7,9 @@ export default class BaseValidator {
   }
 
   test(fName, ...args) {
-    return this.addRule((value) => this.assignValidators[this.validatorType][fName](value, ...args));
+    return this.addRule((value) => {
+      return this.assignValidators[this.validatorType][fName](value, ...args)
+    });
   }
 
   shape(data) {
