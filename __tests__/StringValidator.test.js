@@ -29,9 +29,7 @@ test("Validator contains", () => {
   const schema = v.string();
   schema.required();
   expect(schema.contains("what").isValid("what does the fox say")).toBe(true);
-  expect(schema.contains("whatthe").isValid("what does the fox say")).toBe(
-    false
-  );
+  expect(schema.contains("whatthe").isValid("what does the fox say")).toBe(false);
   expect(schema.isValid("what does the fox say")).toBe(false);
 });
 
