@@ -1,6 +1,6 @@
-import BaseValidator from './BaseValidator';
+import BaseSchema from "./Base";
 
-export default class NumberValidator extends BaseValidator {
+export default class Number extends BaseSchema {
   constructor(...args) {
     super(...args);
     this.rules = [(value) => !(value) || typeof value === 'number'];

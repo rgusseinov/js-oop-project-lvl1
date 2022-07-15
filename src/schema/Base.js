@@ -1,4 +1,4 @@
-export default class BaseValidator {
+export default class BaseSchema {
   constructor({ assignValidators, validatorType }) {
     this.rules = [];
     this.shapeData = {};
@@ -8,8 +8,7 @@ export default class BaseValidator {
 
   test(fName, ...args) {
     return this.addRule((value) => {
-      const res = this.assignValidators[this.validatorType][fName](value, ...args);
-      return res;
+      return this.assignValidators[this.validatorType][fName](value, ...args)
     });
   }
 

@@ -2,7 +2,7 @@
 /* eslint-disable quotes */
 /* eslint-disable linebreak-style */
 import { test, expect } from "@jest/globals";
-import Validator from "../src/components/Validator";
+import Validator from "../src/Validator";
 
 test("Validator without required", () => {
   const v = new Validator();
