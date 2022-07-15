@@ -1,6 +1,6 @@
 import BaseSchema from './Base';
 
-export default class Shape extends BaseSchema {
+export default class ShapeSheme extends BaseSchema {
   constructor(...args) {
     super(...args);
     this.rules = [(value) => typeof value === 'object'];

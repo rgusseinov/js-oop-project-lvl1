@@ -1,17 +1,17 @@
 import BaseSchema from './Base';
 
-export default class String extends BaseSchema {
+export default class StringSheme extends BaseSchema {
   constructor(...args) {
     super(...args);
-    this.rules = [(value) => !(value) || typeof value === 'string'];
+    this.rules = [(value) => typeof value !== 'object' && value !== null];
   }
 
   required() {
-    return this.addRule((value) => value !== '' && value !== null);
+    return this.addRule((value) => value !== undefined && value !== '' && value !== null && typeof value !== 'object');
   }
 
   contains(substring) {
-    return this.addRule((value) => value.includes(substring));
+    return this.addRule((value) => value.indexOf(substring.trim()) !== -1);
   }
 
   minLength(length) {

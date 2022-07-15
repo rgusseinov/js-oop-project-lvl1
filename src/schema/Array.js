@@ -1,9 +1,9 @@
 import BaseSchema from "./Base";
 
-export default class Array extends BaseSchema {
+export default class ArrayShema extends BaseSchema {
   constructor(...args) {
     super(...args);
-    this.rules = [(value) => typeof value === 'object'];
+    this.rules = [(value) => Array.isArray(value)];
   }
 
   required() {

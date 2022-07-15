@@ -1,9 +1,9 @@
 import BaseSchema from "./Base";
 
-export default class Number extends BaseSchema {
+export default class NumberShema extends BaseSchema {
   constructor(...args) {
     super(...args);
-    this.rules = [(value) => !(value) || typeof value === 'number'];
+    this.rules = [(value) => !isNaN(value) && value !== null && typeof value !== 'object'];
   }
 
   required() {
@@ -11,7 +11,7 @@ export default class Number extends BaseSchema {
   }
 
   positive() {
-    return this.addRule((value) => value > 0 || typeof value === 'object');
+    return this.addRule((value) => value > 0 && typeof value === 'number');
   }
 
   range(from, to) {
