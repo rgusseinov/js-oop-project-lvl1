@@ -1,14 +1,13 @@
 export default class BaseSchema {
-  constructor({ assignValidators, validatorType }) {
+  constructor(assignValidators = {}) {
+    this.assignValidators = assignValidators;
     this.rules = [];
     this.shapeData = {};
-    this.assignValidators = assignValidators;
-    this.validatorType = validatorType;
   }
 
   test(fName, ...args) {
     return this.addRule((value) => {
-      return this.assignValidators[this.validatorType][fName](value, ...args)
+      return this.assignValidators[fName](value, ...args)
     });
   }
 

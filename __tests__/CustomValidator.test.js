@@ -4,7 +4,7 @@
 import { test, expect } from "@jest/globals";
 import Validator from "../src/Validator";
 
-test("Custom validator with startsWith function", () => {
+test("Custom scheme with startsWith function", () => {
   const v = new Validator();
   const fn = (value, start) => value.startsWith(start);
   v.addValidator("string", "startWith", fn);
@@ -15,7 +15,7 @@ test("Custom validator with startsWith function", () => {
   expect(schema.isValid("HF")).toBe(true);
 });
 
-test("Custom validator with min function", () => {
+test("Custom scheme with min function", () => {
   const v = new Validator();
   const fn2 = (value, min) => value >= min;
   v.addValidator("number", "min", fn2);
@@ -25,7 +25,7 @@ test("Custom validator with min function", () => {
   expect(schema2.isValid(6)).toBe(true);
 });
 
-test("Custom validator range numbers", () => {
+test("Custom scheme range numbers", () => {
   const v = new Validator();
   const fn3 = (value, from, to) => value >= from && value <= to;
   v.addValidator("number", "range", fn3);
@@ -34,4 +34,13 @@ test("Custom validator range numbers", () => {
   expect(schema2.isValid(4)).toBe(true);
   expect(schema2.isValid(6)).toBe(true);
   expect(schema2.isValid(7)).toBe(false);
+});
+
+test("Custom scheme with wrong fn name", () => {
+  const v = new Validator();
+
+  const fn = (value, start) => value.startsWith(start);
+  v.addValidator('string', 'a', fn);
+  const schema = v.string().test("a", "H");
+  expect(schema.isValid("exlet")).toBe(false);
 });

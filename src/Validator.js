@@ -6,23 +6,28 @@ export default class Validator {
   }
 
   addValidator(type, name, fn) {
-    this.assignValidators[type] = { [name]: fn };
+    if (!Validator.prototype.hasOwnProperty(type)){
+      throw new Error(`Method ${type} not exist`);
+    }
+    if (!this.assignValidators[type]){
+      this.assignValidators[type] = {};
+    }
+    this.assignValidators[type][name] = fn;
   }
 
   string() {
-    return new StringSchema({ assignValidators: this.assignValidators, validatorType: 'string' });
-    // StringValidator(this.assignValidators.string);
+    return new StringSchema(this.assignValidators.string);
   }
 
   number() {
-    return new NumberSchema({ assignValidators: this.assignValidators, validatorType: 'number' });
+    return new NumberSchema(this.assignValidators.number);
   }
 
   array() {
-    return new ArraySchema({ assignValidators: this.assignValidators, validatorType: 'array' });
+    return new ArraySchema(this.assignValidators.array);
   }
 
   object() {
-    return new ShapeSchema({ assignValidators: this.assignValidators, validatorType: 'object' });
+    return new ShapeSchema(this.assignValidators.object);
   }
 }
