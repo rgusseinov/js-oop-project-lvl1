@@ -8,7 +8,7 @@ export default class Validator {
   }
 
   addValidator(type, name, fn) {
-    if (Object.hasOwn(Validator, type)) {
+    if (!Object.prototype.hasOwnProperty(type)) {
       throw new Error(`Method ${type} not exist`);
     }
     if (!this.assignValidators[type]) {
