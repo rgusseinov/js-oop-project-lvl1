@@ -3,7 +3,7 @@ import BaseSchema from './Base';
 export default class StringSheme extends BaseSchema {
   constructor(...args) {
     super(...args);
-    this.rules = [(value) => typeof value !== 'object' && value !== null];
+    this.rules = [(value) => typeof value !== 'object' || value === null];
   }
 
   required() {
