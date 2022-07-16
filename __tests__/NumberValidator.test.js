@@ -46,6 +46,7 @@ test("Number schema positive value", () => {
 test("Number schema range values", () => {
   const v = new Validator();
   const schema = v.number();
+  
   schema.range(-5, 5);
   expect(schema.isValid(-6)).toBe(false);
   expect(schema.isValid(0)).toBe(true);
