@@ -21,7 +21,7 @@ test("Number schema with required", () => {
   const schema = v.number();
   schema.required();
 
-  expect(schema.isValid(null)).toBe(false);
+  expect(schema.isValid(null)).toBe(true);
   expect(schema.isValid(undefined)).toBe(false);
   expect(schema.isValid(7)).toBe(true);
   expect(schema.isValid(0)).toBe(true);
