@@ -3,11 +3,11 @@ import BaseSchema from "./Base";
 export default class ArrayShema extends BaseSchema {
   constructor(...args) {
     super(...args);
-    this.rules = [(value) => Array.isArray(value)];
+    this.rules = [(value) => value === null || Array.isArray(value)];
   }
 
   required() {
-    return this.addRule((array) => Array.isArray(array));
+    return this.addRule(array => array != null);
   }
 
   sizeof(size) {
