@@ -4,7 +4,7 @@ export default class NumberShema extends BaseSchema {
   constructor(...args) {
     super(...args);
     this.rules = [
-      (value) => !isNaN(value) && value !== null && typeof value !== "object",
+      (value) => !isNaN(value) && typeof value !== "object",
     ];
   }
 
