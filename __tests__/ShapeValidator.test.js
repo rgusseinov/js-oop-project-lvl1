@@ -4,7 +4,7 @@
 import { test, expect } from "@jest/globals";
 import Validator from "../src/Validator";
 
-test("Validator shape", () => {
+test("Shape schema with required", () => {
   const v = new Validator();
   const schema = v.object();
 
@@ -14,7 +14,7 @@ test("Validator shape", () => {
   });
 
   expect(schema.isValid({ name: "kolya", age: 100 })).toBe(true);
-  expect(schema.isValid({ name: "maya", age: null })).toBe(true);
+  expect(schema.isValid({ name: "maya", age: null })).toBe(false);
   expect(schema.isValid({ name: "", age: null })).toBe(false);
   expect(schema.isValid({ name: "ada", age: -5 })).toBe(false);
   expect(schema.isValid({ name: "ada" })).toBe(false);

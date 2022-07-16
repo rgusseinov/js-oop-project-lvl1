@@ -1,8 +1,2 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable quotes */
-/* eslint-disable linebreak-style */
-// @ts-check
-
-import Validator from "./src/components/Validator";
-
+import Validator from "./src/Validator";
 export default Validator;

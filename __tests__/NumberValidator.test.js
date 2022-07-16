@@ -25,21 +25,22 @@ test("Number schema with required", () => {
   expect(schema.isValid(undefined)).toBe(false);
   expect(schema.isValid(7)).toBe(true);
   expect(schema.isValid(0)).toBe(true);
+  expect(schema.isValid(-777)).toBe(true);
+  expect(schema.isValid(10.12)).toBe(true);
   expect(schema.isValid({})).toBe(false);
   expect(schema.isValid("hello")).toBe(false);
 });
- 
+
 test("Number schema positive value", () => {
   const v = new Validator();
   const schema = v.number();
-  
+
   expect(schema.positive().isValid(112)).toBe(true);
   expect(schema.positive().isValid(0)).toBe(false);
   expect(schema.positive().isValid(-1)).toBe(false);
   expect(schema.positive().isValid(null)).toBe(false);
   expect(schema.positive().isValid("hello")).toBe(false);
 });
-
 
 test("Number schema range values", () => {
   const v = new Validator();
