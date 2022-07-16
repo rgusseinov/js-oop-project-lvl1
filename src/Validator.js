@@ -5,7 +5,7 @@ import {
 export default class Validator {
   constructor() {
     this.assignValidators = {
-      string: {}, number: {}, array: {}, object: {}
+      string: {}, number: {}, array: {}, object: {},
     };
   }
 
