@@ -1,5 +1,5 @@
-import { 
-StringSchema, NumberSchema, ArraySchema, ShapeSchema,
+import {
+  StringSchema, NumberSchema, ArraySchema, ShapeSchema,
 } from './schema';
 
 export default class Validator {
@@ -8,10 +8,10 @@ export default class Validator {
   }
 
   addValidator(type, name, fn) {
-    if (!Validator.prototype.hasOwnProperty(type)){
+    if (!Validator.prototype.hasOwnProperty(type)) {
       throw new Error(`Method ${type} not exist`);
     }
-    if (!this.assignValidators[type]){
+    if (!this.assignValidators[type]) {
       this.assignValidators[type] = {};
     }
     this.assignValidators[type][name] = fn;
