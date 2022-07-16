@@ -4,16 +4,16 @@ export default class NumberShema extends BaseSchema {
   constructor(...args) {
     super(...args);
     this.rules = [
-      (value) => (!isNaN(value) && typeof value !== "object") || value === null
+      (value) => (value === null || typeof value === 'number')
     ];
   }
 
   required() {
-    return this.addRule((value) => !isNaN(value));
+    return this.addRule((value) => value != null);
   }
 
   positive() {
-    return this.addRule((value) => value > 0 || value === null);
+    return this.addRule((value) => value == null || value > 0);
   }
 
   range(from, to) {

@@ -9,7 +9,7 @@ test("Number schema without required", () => {
   const schema = v.number();
 
   expect(schema.isValid(123)).toBe(true);
-  expect(schema.isValid("123")).toBe(true);
+  expect(schema.isValid("123")).toBe(false);
   expect(schema.isValid("hello")).toBe(false);
   expect(schema.isValid(null)).toBe(true);
   expect(schema.isValid({})).toBe(false);
@@ -21,7 +21,8 @@ test("Number schema with required", () => {
   const schema = v.number();
   schema.required();
 
-  expect(schema.isValid(null)).toBe(true);
+  expect(schema.isValid(null)).toBe(false);
+  expect(!schema.isValid(null)).toBe(true);
   expect(schema.isValid(undefined)).toBe(false);
   expect(schema.isValid(7)).toBe(true);
   expect(schema.isValid(0)).toBe(true);
@@ -36,10 +37,9 @@ test("Number schema positive value", () => {
   const schema = v.number();
 
   expect(schema.positive().isValid(112)).toBe(true);
-  expect(schema.positive().isValid(null)).toBe(true);
-  
   expect(schema.positive().isValid(0)).toBe(false);
   expect(schema.positive().isValid(-1)).toBe(false);
+  expect(schema.positive().isValid(null)).toBe(true);
   expect(schema.positive().isValid("hello")).toBe(false);
 });
 
