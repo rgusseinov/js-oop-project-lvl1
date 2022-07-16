@@ -1,4 +1,4 @@
-import {StringSchema, NumberSchema, ArraySchema, ShapeSchema} from './schema';
+import { StringSchema, NumberSchema, ArraySchema, ShapeSchema } from './schema';
 
 export default class Validator {
   constructor() {

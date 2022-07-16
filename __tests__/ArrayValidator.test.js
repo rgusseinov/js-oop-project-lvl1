@@ -12,8 +12,6 @@ test("Validator array", () => {
   expect(schema.isValid({})).toBe(false);
   expect(schema.isValid("hello")).toBe(false);
   expect(schema.isValid(null)).toBe(true);
-
-  expect(schema.isValid(new Number(1))).toBe(false);
 });
 
 test("Validator array with required", () => {
