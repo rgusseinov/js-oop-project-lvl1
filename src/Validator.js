@@ -13,9 +13,6 @@ export default class Validator {
     if (!Object.prototype.hasOwnProperty.call(this.assignValidators, type)) {
       throw new Error(`Method ${type} not exist`);
     }
-    if (!this.assignValidators[type]) {
-      this.assignValidators[type] = {};
-    }
     this.assignValidators[type][name] = fn;
   }
 
