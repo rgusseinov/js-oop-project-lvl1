@@ -1,2 +1,2 @@
-import Validator from "./src/Validator";
+import Validator from './src/Validator';
 export default Validator;

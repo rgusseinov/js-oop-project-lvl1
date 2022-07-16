@@ -1,4 +1,4 @@
-import BaseSchema from "./Base";
+import BaseSchema from './Base';
 
 export default class ArrayShema extends BaseSchema {
   constructor(...args) {
@@ -7,7 +7,7 @@ export default class ArrayShema extends BaseSchema {
   }
 
   required() {
-    return this.addRule(array => array != null);
+    return this.addRule((array) => array != null);
   }
 
   sizeof(size) {

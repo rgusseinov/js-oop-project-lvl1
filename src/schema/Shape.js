@@ -1,4 +1,4 @@
-import BaseSchema from "./Base";
+import BaseSchema from './Base';
 
 export default class ShapeSheme extends BaseSchema {
   constructor(...args) {
