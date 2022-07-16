@@ -36,9 +36,10 @@ test("Number schema positive value", () => {
   const schema = v.number();
 
   expect(schema.positive().isValid(112)).toBe(true);
+  expect(schema.positive().isValid(null)).toBe(true);
+  
   expect(schema.positive().isValid(0)).toBe(false);
   expect(schema.positive().isValid(-1)).toBe(false);
-  expect(schema.positive().isValid(null)).toBe(false);
   expect(schema.positive().isValid("hello")).toBe(false);
 });
 

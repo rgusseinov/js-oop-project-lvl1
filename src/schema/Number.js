@@ -13,7 +13,7 @@ export default class NumberShema extends BaseSchema {
   }
 
   positive() {
-    return this.addRule((value) => value > 0 && typeof value === "number");
+    return this.addRule((value) => value > 0 || value === null);
   }
 
   range(from, to) {
