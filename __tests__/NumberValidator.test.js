@@ -11,7 +11,7 @@ test("Number schema without required", () => {
   expect(schema.isValid(123)).toBe(true);
   expect(schema.isValid("123")).toBe(true);
   expect(schema.isValid("hello")).toBe(false);
-  expect(schema.isValid(null)).toBe(false);
+  expect(schema.isValid(null)).toBe(true);
   expect(schema.isValid({})).toBe(false);
   expect(schema.isValid([])).toBe(false);
 });
