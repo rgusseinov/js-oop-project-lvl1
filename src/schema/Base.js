@@ -7,7 +7,8 @@ export default class BaseSchema {
 
   test(fName, ...args) {
     return this.addRule((value) => {
-      return this.assignValidators[fName](value, ...args)
+      const res = this.assignValidators[fName](value, ...args);
+      return res;
     });
   }
 

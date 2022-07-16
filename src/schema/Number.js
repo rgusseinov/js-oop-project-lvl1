@@ -4,7 +4,7 @@ export default class NumberShema extends BaseSchema {
   constructor(...args) {
     super(...args);
     this.rules = [
-      (value) => (value === null || typeof value === 'number')
+      (value) => (value === null || typeof value === 'number'),
     ];
   }
 

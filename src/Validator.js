@@ -1,5 +1,5 @@
 import { 
-  StringSchema, NumberSchema, ArraySchema, ShapeSchema 
+  StringSchema, NumberSchema, ArraySchema, ShapeSchema,
 } from './schema';
 
 export default class Validator {
