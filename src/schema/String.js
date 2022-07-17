@@ -7,7 +7,7 @@ export default class StringSheme extends BaseSchema {
   }
 
   required() {
-    return this.addRule((value) => value !== undefined && value !== '' && value !== null && typeof value !== 'object');
+    return this.addRule((value) => value != null && value !== '');
   }
 
   contains(substring) {
