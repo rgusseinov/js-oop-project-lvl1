@@ -44,3 +44,12 @@ test("Custom scheme with wrong fn name", () => {
   const schema = v.string().test("a", "H");
   expect(schema.isValid("exlet")).toBe(false);
 });
+
+test("Custom scheme throw error", () => {
+  const v = new Validator();
+
+  const fn = (a, b) => a + b;
+  v.addValidator('someUnkownEntity', 'plus', fn);
+  const schema = v.number().test("plus", 1, 2);
+  expect(schema.isValid(3)).toThrow();
+});
