@@ -8,7 +8,7 @@ class TicTacToe {
       Array(3).fill(''),
       Array(3).fill(''),
     ];
-    this.currentPlayer = '';
+
     switch (level) {
       case 'easy':
         this.strategy = new Easy();
@@ -20,52 +20,41 @@ class TicTacToe {
   }
 
   go(x = null, y = null) {
-    console.log(this.state[0]);
-
     if (x !== null && y !== null) {
-      this.currentPlayer = this.userPlayer;
-      this.state[x][y] = this.userPlayer;
-      return this.isWinner();
+      this.state[x][y] = 'Player';
+      return this.isWinner('Player');
     }
-    this.currentPlayer = this.computerPlayer;
+
     const [i, j] = this.strategy.getNextStep(this.state);
-    this.state[i][j] = this.computerPlayer;
-    return this.isWinner();
+    this.state[i][j] = 'IA';
+    return this.isWinner('IA');
   }
 
-  isWinner() {
-    if (this.isWinnerByCellAndColumn() || this.isWinnerByDiagonal()) {
-      return true;
-    }
-    return false;
-  }
-
-  isWinnerByCellAndColumn() {  
-    if (this.state.find((row) => this.hasPlayerMarkedAllSteps(row, this.currentPlayer))) {
+  isWinner(type) {
+    if (this.state.find((row) => this.hasPlayerMarkedAllSteps(row, type))) {
       return true;
     }
 
     for (let i = 0; i < 3; i += 1) {
-      if (this.state[0][i] === this.currentPlayer && this.state[1][i] === this.currentPlayer && this.state[2][i] === this.currentPlayer) {
+      if (this.state[0][i] === type && this.state[1][i] === type && this.state[2][i] === type) {
         return true;
       }
     }
 
-    return false;
-  }
-
-  isWinnerByDiagonal() {
-    if (this.state[0][0] === this.currentPlayer && this.state[1][1] === this.currentPlayer
-        && this.state[2][2] === this.currentPlayer
-        || this.state[0][2] === this.currentPlayer && this.state[1][1] === this.currentPlayer
-        && this.state[2][0] === this.currentPlayer) {
+    if (this.state[0][0] === type && this.state[1][1] === type && this.state[2][2] === type) {
       return true;
     }
+
+    if (this.state[0][2] === type && this.state[1][1] === type && this.state[2][0] === type) {
+      return true;
+    }
+  
     return false;
   }
 
-  hasPlayerMarkedAllSteps(row, player) {
-    return row.every((cell) => cell === player);
+
+  hasPlayerMarkedAllSteps(row, type) {
+    return row.every((cell) => cell === type);
   }
 
   // END
